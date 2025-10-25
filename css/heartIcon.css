@@ -1,0 +1,21 @@
+.heart-btn {
+  width: 20px;
+  height: 17px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.heart-btn svg {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke: #ff6767;
+  stroke-width: 1.5px;
+  display: block;
+}
+
+.heart-btn.active svg {
+  fill: #ff6767;
+}

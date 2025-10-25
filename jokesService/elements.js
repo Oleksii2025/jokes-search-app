@@ -1,0 +1,7 @@
+export default class Elements {
+  constructor() {
+    this.categories = document.querySelector(".categories");
+    this.search = document.querySelector(".search");
+    this.jokes = document.querySelector(".jokes-wrapper");
+  }
+}

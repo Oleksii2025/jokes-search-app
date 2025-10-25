@@ -1,0 +1,10 @@
+:root {
+  --bs-primary: #ff6600; /* помаранчевий */
+  --bs-secondary: #0066ff; /* синій */
+  --bs-success: #00cc66; /* зелений */
+  --bs-danger: #ff3300; /* червоний */
+  --bs-warning: #ffcc00; /* жовтий */
+  --bs-info: #33ccff; /* блакитний */
+  --bs-light: #f8f9fa; /* світлий */
+  --bs-dark: #333333; /* темний */
+}
