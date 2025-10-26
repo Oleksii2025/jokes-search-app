@@ -16,64 +16,80 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/app.css" />
   </head>
   <body>
-    <div class="page-wrapper row m-5">
-      <div class="col col-lg-8 p-5">
-        <div class="d-flex flex-column align-items-left">
-          <div class="logo">MSI 2020</div>
-          <div class="greeting">
-            <h1 class="greeting--hey">Hey!</h1>
-            <h2 class="greeting--slogan">Let’s try to find a joke for you:</h2>
+    <div class="container d-flex justify-content-center">
+      <div class="page-wrapper row w-100">
+        <div class="col col-lg-8">
+          <div class="d-flex flex-column align-items-left form-content">
+            <div class="logo">MSI 2020</div>
+            <div class="greeting">
+              <h1 class="greeting--hey">Hey!</h1>
+              <h2 class="greeting--slogan">
+                Let’s try to find a joke for you:
+              </h2>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="selection-jokes-type"
+                id="jokeByRandom"
+                value="jokeByRandom"
+                checked
+              />
+              <label class="form-check-label" for="jokeByRandom">
+                Random
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="selection-jokes-type"
+                id="jokeByCategories"
+                value="jokeByCategories"
+              />
+              <label class="form-check-label" for="jokeByCategories">
+                From caterogies
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="selection-jokes-type"
+                id="jokeBySearch"
+                value="jokeBySearch"
+              />
+              <label class="form-check-label" for="jokeBySearch">
+                Search
+              </label>
+            </div>
+            <div id="categories" class="categories"></div>
+            <div id="search">
+              <input
+                class="search"
+                type="text"
+                value=""
+                placeholder="Free text search..."
+              />
+            </div>
+            <div class="button-wrapper">
+              <button type="button" value="send">Get a Joke</button>
+            </div>
+            <div class="jokes"></div>
           </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="selection-jokes-type"
-              id="jokeByRandom"
-              value="jokeByRandom"
-              checked
-            />
-            <label class="form-check-label" for="jokeByRandom"> Random </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="selection-jokes-type"
-              id="jokeByCategories"
-              value="jokeByCategories"
-            />
-            <label class="form-check-label" for="jokeByCategories">
-              From caterogies
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="selection-jokes-type"
-              id="jokeBySearch"
-              value="jokeBySearch"
-            />
-            <label class="form-check-label" for="jokeBySearch"> Search </label>
-          </div>
-
-          <div id="categories" class="categories"></div>
-          <div class="search">
-            <input id="search" type="text" value="" />
-          </div>
-          <div class="button-wrapper">
-            <button type="button" value="send">Get a Joke</button>
-          </div>
-          <div class="jokes"></div>
         </div>
-      </div>
-      <div class="favorites-jokes-wrapper col col-lg-4">
-        <div class="title">Favorite</div>
-        <div class="favorites"></div>
+        <div id="favorites-jokes" class="favorites-jokes-wrapper col col-lg-4">
+          <div class="title">Favorite</div>
+          <div class="favorites"></div>
+        </div>
       </div>
     </div>
     <script type="module" src="./jokesService/app.js" async defer></script>

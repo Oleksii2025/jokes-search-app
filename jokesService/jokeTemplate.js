@@ -18,19 +18,24 @@ export const renderHTML = (joke, favorite) => {
         <div class="joke--icon">${chatSVG}</div>
         <div class="joke--content d-flex flex-column">
           <div class="joke--content--id-link-container d-flex">
-            <div class="joke--content--id-link-container--id">${joke.id}</div>
+            <div class="joke--content--id-link-container--id">ID:&nbsp;</div>
             <a href="${
               joke.url
-            }" class="joke--content--id-link-container--link" target="blank">${linkSVG}</a>
+            }" class="joke--content--id-link-container--link" target="blank">
+            <span>${joke.id}</span>&nbsp;${linkSVG}</a>
           </div>
           <div class="joke--content--text">${joke.value}</div>
-          <div class="joke--content--last-update-and-category d-flex">
+          <div class="joke--content--last-update-and-category d-flex justify-content-between">
             <div class="joke--content--last-update-and-category--last-update">
               Last update: ${getHoursFromNow(joke.updated_at)} hours ago
             </div>
-            <div class="joke--content--last-update-and-category--category">
-              ${joke.categories}
-            </div>
+            ${
+              joke.categories.length > 0
+                ? `<div class="joke--content--last-update-and-category--category">
+                ${joke.categories}
+              </div>`
+                : ""
+            }
           </div>
         </div>
       </div>

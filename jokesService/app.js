@@ -45,6 +45,7 @@ document.addEventListener("click", (e) => {
     e.target.className === "categories--category-btn"
   ) {
     categoryName = e.target.value;
+    e.target.classList.add("active");
   }
   const heartBtn = e.target.closest(".heart-btn");
   if (heartBtn) {
@@ -53,7 +54,7 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener("input", (e) => {
-  if (e.target.id === "search") {
+  if (e.target.className === "search") {
     searchValue = e.target.value;
   }
 });

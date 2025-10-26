@@ -1,10 +1,13 @@
 :root {
-  --bs-primary: #ff6600; /* помаранчевий */
-  --bs-secondary: #0066ff; /* синій */
-  --bs-success: #00cc66; /* зелений */
-  --bs-danger: #ff3300; /* червоний */
-  --bs-warning: #ffcc00; /* жовтий */
-  --bs-info: #33ccff; /* блакитний */
-  --bs-light: #f8f9fa; /* світлий */
-  --bs-dark: #333333; /* темний */
+  --bs-primary: #ff6600;
+  --bs-secondary: #0066ff;
+  --bs-success: #00cc66;
+  --bs-danger: #ff3300;
+  --bs-warning: #ffcc00;
+  --bs-info-400: #8ea7ff;
+  --bs-info-500: #7291ff;
+  --bs-light: #ffffff;
+  --bs-dark: #333333;
+  --bs-gray-500: #ababab;
+  --bs-gray-400: #f8f8f8;
 }

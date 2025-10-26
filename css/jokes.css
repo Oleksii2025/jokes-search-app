@@ -1,0 +1,84 @@
+.jokes {
+  padding-top: 40px;
+}
+.jokes--joke-wrapper {
+  width: 680px;
+  height: auto;
+  border-radius: 20px;
+  background: var(--bs-gray-400);
+  padding: 68px 40px 45px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.mark-as-favorite {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+.joke .joke--icon {
+  padding-right: 20px;
+}
+.joke--content {
+  width: 100%;
+}
+.joke--content--id-link-container--id {
+  color: var(--bs-gray-500);
+}
+.joke--content--id-link-container--link span {
+  color: var(--bs-info-400);
+  text-decoration: underline;
+}
+.joke--content--text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--bs-dark);
+  padding-top: 5px;
+}
+.joke--content--last-update-and-category {
+  padding-top: 28px;
+}
+.joke--content--last-update-and-category--last-update {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 14px;
+  color: var(--bs-gray-500);
+}
+.joke--content--last-update-and-category--category {
+  min-width: 108px;
+  height: 24px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+  color: var(--bs-dark);
+  background: var(--bs-light);
+  border-radius: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 6px;
+}
+#favorites-jokes.favorites-jokes-wrapper {
+  background: var(--bs-gray-400);
+  padding: 40px;
+}
+.favorites-jokes-wrapper .title {
+  color: var(--bs-gray-500);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  margin-bottom: 20px;
+}
+.favorites-jokes-wrapper .jokes--joke-wrapper {
+  width: 400px;
+  height: auto;
+  border-radius: 20px;
+  background: var(--bs-light);
+  padding: 48px 20px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.mark-as-favorite {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

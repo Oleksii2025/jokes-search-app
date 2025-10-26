@@ -1,0 +1,23 @@
+#categories {
+  display: flex;
+  margin-top: 20px;
+}
+.categories--category-btn {
+  min-width: 94px;
+  height: 28px;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid var(--bs-gray-400);
+  color: var(--bs-gray-500);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 6px 15px;
+  margin: 5px;
+}
+.active {
+  border: unset;
+  background: var(--bs-gray-400);
+  color: var(--bs-dark);
+}

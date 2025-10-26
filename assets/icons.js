@@ -27,6 +27,4 @@ export const chatSVG = `
   <path d="M15.3529 15.1407H24.6471V16.3126H15.3529V15.1407Z" fill="#ABABAB" />
   <path d="M15.3529 17.6407H24.6471V18.8126H15.3529V17.6407Z" fill="#ABABAB" />
   <path d="M15.3529 20.1407H24.6471V21.3126H15.3529V20.1407Z" fill="#ABABAB" />
-</svg>;
-
-`;
+</svg>`;

@@ -1,2 +1,85 @@
 @import url("variables.css");
 @import url("heartIcon.css");
+@import url("jokes.css");
+@import url("categories.css");
+@import url("search.css");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+body .container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  max-width: unset;
+  background: linear-gradient(
+    to right,
+    var(--bs-light) 50%,
+    var(--bs-gray-400) 50%
+  );
+}
+.page-wrapper.row {
+  margin: 0;
+  max-width: 1440px;
+}
+.page-wrapper .col {
+  padding-left: 0;
+  padding-right: 0;
+}
+.form-content {
+  padding-left: 140px;
+  padding-right: 140px;
+  background: var(--bs-light);
+}
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--bs-dark);
+  margin: 40px 0 78px;
+}
+.greeting .greeting--hey {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 44px;
+  color: var(--bs-dark);
+}
+.greeting .greeting--slogan {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 44px;
+  color: var(--bs-dark);
+  padding-bottom: 44px;
+}
+label.form-check-label {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--bs-dark);
+}
+.form-check-input {
+  color: var(--bs-gray-500);
+  cursor: pointer;
+}
+.form-check-input:checked {
+  background-color: var(--bs-dark);
+  border-color: var(--bs-dark);
+}
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(51, 51, 51, 0.25);
+}
+
+.button-wrapper {
+  margin-top: 20px;
+}
+.button-wrapper button {
+  width: 152px;
+  height: 42px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  color: var(--bs-light);
+  background: linear-gradient(to right, var(--bs-info-400), var(--bs-info-500));
+  border-radius: 10px;
+}
