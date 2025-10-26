@@ -1,0 +1,74 @@
+.open-sidebar-container {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+.open-sidebar-container .title {
+  color: var(--bs-gray-500);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+.close-sidebar-container {
+  margin-bottom: 20px;
+  padding: 0 40px 0 0;
+}
+.close-sidebar-container .title {
+  margin-bottom: 0;
+}
+.seidbar-open-button {
+  width: 28px;
+  height: 28px;
+  background-image: url("../assets/icons/open.svg");
+  margin-right: 10px;
+}
+.seidbar-close-button {
+  width: 28px;
+  height: 28px;
+  background-image: url("../assets/icons/close.svg");
+  margin-right: 10px;
+}
+.offcanvas.favorites-jokes-wrapper {
+  background: var(--bs-gray-400);
+  padding: 40px 0 40px 40px;
+  width: 480px;
+}
+.offcanvas.favorites-jokes-wrapper .offcanvas-body {
+  padding: 0;
+  overflow-x: hidden;
+}
+.offcanvas.favorites-jokes-wrapper .offcanvas-body .joke--icon {
+  padding-right: 10px;
+}
+@media (max-width: 576px) {
+  .offcanvas.favorites-jokes-wrapper {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px 0 20px 20px;
+  }
+  .offcanvas.favorites-jokes-wrapper .jokes--joke-wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .close-sidebar-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 0;
+  }
+}
+@media (max-width: 460px) {
+  .offcanvas.favorites-jokes-wrapper {
+    width: 100%;
+    max-width: 460px;
+  }
+  .offcanvas.favorites-jokes-wrapper .jokes--joke-wrapper {
+    width: 100%;
+    max-width: 360px;
+  }
+  .close-sidebar-container {
+    width: 100%;
+    max-width: 360px;
+  }
+}

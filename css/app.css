@@ -3,6 +3,7 @@
 @import url("jokes.css");
 @import url("categories.css");
 @import url("search.css");
+@import url("sidebar.css");
 
 body {
   font-family: "Roboto", sans-serif;
@@ -30,6 +31,8 @@ body .container {
   padding-left: 140px;
   padding-right: 140px;
   background: var(--bs-light);
+  height: 100%;
+  position: relative;
 }
 .logo {
   font-size: 20px;
@@ -82,4 +85,21 @@ label.form-check-label {
   color: var(--bs-light);
   background: linear-gradient(to right, var(--bs-info-400), var(--bs-info-500));
   border-radius: 10px;
+}
+
+@media (max-width: 1440px) {
+  .page-wrapper.row {
+    max-width: 1440px;
+  }
+  .form-content {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }

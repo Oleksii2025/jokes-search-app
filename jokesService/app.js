@@ -77,7 +77,9 @@ function handleHeartButtonClick(heartBtn) {
 
 function updateLocalStorage() {
   localStorage.setItem("favoriteJokes", JSON.stringify(favoritesJokesArray));
-  $elements.favoritesJokes.innerHTML = "";
+  $elements.favoritesJokes.forEach((el) => {
+    el.innerHTML = "";
+  });
   favoritesJokesArray.forEach((favoritesJoke) => {
     renderJoke(favoritesJoke, $elements.favoritesJokes, true);
   });
@@ -86,6 +88,17 @@ function updateLocalStorage() {
     const isFav = favoritesJokesArray.some((fav) => fav.id === btn.dataset.id);
     btn.classList.toggle("active", isFav);
   });
+}
+
+// Render a single joke into a specified container in the DOM
+function renderJoke(joke, container, favorite = false) {
+  if (container instanceof NodeList) {
+    container.forEach((con) => {
+      con.insertAdjacentHTML("beforeend", renderHTML(joke, favorite));
+    });
+  } else {
+    container.insertAdjacentHTML("beforeend", renderHTML(joke, favorite));
+  }
 }
 
 const selectionOfJokes = async () => {
@@ -113,11 +126,6 @@ const selectionOfJokes = async () => {
       break;
   }
 };
-
-// Render a single joke into a specified container in the DOM
-function renderJoke(joke, container, favorite = false) {
-  container.insertAdjacentHTML("beforeend", renderHTML(joke, favorite));
-}
 
 const displayQuerySelection = (param) => {
   switch (param) {

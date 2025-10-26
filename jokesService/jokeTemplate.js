@@ -1,4 +1,4 @@
-import { heartSVG, linkSVG, chatSVG } from "../assets/icons.js";
+import { heartSVG, linkSVG, chatSVG } from "../assets/icons/icons.js";
 
 export const renderHTML = (joke, favorite) => {
   return `<div class="jokes--joke-wrapper">
@@ -45,7 +45,7 @@ export const renderHTML = (joke, favorite) => {
 const getHoursFromNow = (dateString) => {
   const pastDate = new Date(dateString);
   const now = new Date();
-  const diffMs = now - pastDate; // різниця у мілісекундах
-  const diffHours = Math.floor(diffMs / (1000 * 60 * 60)); // переводимо в години
+  const diffMs = now - pastDate;
+  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
   return diffHours;
 };

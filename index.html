@@ -25,7 +25,7 @@
   <body>
     <div class="container d-flex justify-content-center">
       <div class="page-wrapper row w-100">
-        <div class="col col-lg-8">
+        <div class="col col-lg-8 col-md-12">
           <div class="d-flex flex-column align-items-left form-content">
             <div class="logo">MSI 2020</div>
             <div class="greeting">
@@ -74,6 +74,7 @@
             <div id="categories" class="categories"></div>
             <div id="search">
               <input
+                name="search"
                 class="search"
                 type="text"
                 value=""
@@ -85,12 +86,46 @@
             </div>
             <div class="jokes"></div>
           </div>
+          <div
+            class="open-sidebar-container d-flex d-sm-flex d-md-flex d-lg-none d-xl-none d-xxl-none justify-content-between align-items-center"
+          >
+            <button
+              class="seidbar-open-button"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"
+            ></button>
+            <div class="title">Favorite</span>
+          </div>
         </div>
-        <div id="favorites-jokes" class="favorites-jokes-wrapper col col-lg-4">
+        <!-- Sidebar block -->
+        <div
+          class="offcanvas offcanvas-end favorites-jokes-wrapper d-flex d-sm-flex d-md-flex d-lg-none d-xl-none d-xxl-none"
+          tabindex="-1"
+          id="offcanvasRight"
+          aria-labelledby="offcanvasRightLabel"
+        >
+          <div class="offcanvas-header close-sidebar-container d-flex justify-content-end align-items-center">
+            <button
+              type="button"
+              class="seidbar-close-button"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+            <div class="title" id="offcanvasRightLabel">Favorite</div>
+          </div>
+          <div class="offcanvas-body favorites"></div>
+        </div>
+        <!-- End sidebar block -->
+      </div>
+      <div
+          id="favorites-jokes"
+          class="favorites-jokes-wrapper col col-lg-4 d-none d-lg-block"
+        >
           <div class="title">Favorite</div>
           <div class="favorites"></div>
         </div>
-      </div>
     </div>
     <script type="module" src="./jokesService/app.js" async defer></script>
   </body>
