@@ -3,51 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chuck Norris Jokes</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/app.css">
+    <title>Jokes</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/app.css" />
   </head>
-</html>
-<body>
-<div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="selection-jokes-type" id="jokeByRandom" value="jokeByRandom" checked>
-    <label class="form-check-label" for="jokeByRandom">
-      Random
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="selection-jokes-type" id="jokeByCategories" value="jokeByCategories">
-    <label class="form-check-label" for="jokeByCategories">
-      From caterogies
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="selection-jokes-type" id="jokeBySearch" value="jokeBySearch">
-    <label class="form-check-label" for="jokeBySearch">
-      Search
-    </label>
-  </div>
+  <body>
+    <div class="page-wrapper row m-5">
+      <div class="col col-lg-8 p-5">
+        <div class="d-flex flex-column align-items-left">
+          <div class="logo">MSI 2020</div>
+          <div class="greeting">
+            <h1 class="greeting--hey">Hey!</h1>
+            <h2 class="greeting--slogan">Let’s try to find a joke for you:</h2>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="selection-jokes-type"
+              id="jokeByRandom"
+              value="jokeByRandom"
+              checked
+            />
+            <label class="form-check-label" for="jokeByRandom"> Random </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="selection-jokes-type"
+              id="jokeByCategories"
+              value="jokeByCategories"
+            />
+            <label class="form-check-label" for="jokeByCategories">
+              From caterogies
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="selection-jokes-type"
+              id="jokeBySearch"
+              value="jokeBySearch"
+            />
+            <label class="form-check-label" for="jokeBySearch"> Search </label>
+          </div>
 
-  <div id="categories" class="categories">
-
-  </div>
-  <div class="search">
-    <input id="search" type="text" value="">
-  </div>
-  <div class="button-wrapper">
-    <button type="button" value="send">Get a Joke</button>
-  </div>
-  <div class="jokes-wrapper">
-    
-  </div>
-
-  <div class="favorites-jokes-wrapper">
-    
-  </div>
-</div>
-<script type="module" src="./jokesService/app.js" async defer></script>
-</body>
+          <div id="categories" class="categories"></div>
+          <div class="search">
+            <input id="search" type="text" value="" />
+          </div>
+          <div class="button-wrapper">
+            <button type="button" value="send">Get a Joke</button>
+          </div>
+          <div class="jokes"></div>
+        </div>
+      </div>
+      <div class="favorites-jokes-wrapper col col-lg-4">
+        <div class="title">Favorite</div>
+        <div class="favorites"></div>
+      </div>
+    </div>
+    <script type="module" src="./jokesService/app.js" async defer></script>
+  </body>
 </html>

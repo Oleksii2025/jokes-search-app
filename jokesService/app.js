@@ -1,6 +1,6 @@
 import Jokes from "./jokes.js";
 import Elements from "./elements.js";
-import { heartSVG } from "../assets/icons.js";
+import { renderHTML } from "./jokeTemplate.js";
 
 const jokes = new Jokes();
 const $elements = new Elements();
@@ -8,6 +8,7 @@ const categories = await jokes.getCategories();
 const storedJokes = localStorage.getItem("favoriteJokes");
 
 let jokesArray = [];
+let favoritesJokesArray = [];
 let jokeType = "jokeByRandom";
 let categoryName = "";
 let searchValue = "";
@@ -22,8 +23,10 @@ categories.forEach((category) => {
 });
 
 if (storedJokes) {
-  jokesArray = JSON.parse(storedJokes);
-  jokesArray.forEach((joke) => renderJoke(joke.text, true, joke.id));
+  favoritesJokesArray = JSON.parse(storedJokes);
+  favoritesJokesArray.forEach((joke) =>
+    renderJoke(joke, $elements.favoritesJokes, true)
+  );
 }
 
 document.addEventListener("click", (e) => {
@@ -56,68 +59,63 @@ document.addEventListener("input", (e) => {
 });
 
 function handleHeartButtonClick(heartBtn) {
-  const jokeId = heartBtn.dataset.id;
-  const jokeText = heartBtn.dataset.text;
+  const joke = { ...heartBtn.dataset };
   heartBtn.classList.toggle("active");
-  const jokeIndex = jokesArray.findIndex((joke) => joke.id === jokeId);
+  const jokeIndex = favoritesJokesArray.findIndex((j) => j.id === joke.id);
   if (heartBtn.classList.contains("active")) {
     if (jokeIndex === -1) {
-      jokesArray.push({ id: jokeId, text: jokeText });
+      favoritesJokesArray.push(joke);
     }
   } else {
     if (jokeIndex !== -1) {
-      jokesArray.splice(jokeIndex, 1);
+      favoritesJokesArray.splice(jokeIndex, 1);
     }
   }
   updateLocalStorage();
 }
 
 function updateLocalStorage() {
-  localStorage.setItem("favoriteJokes", JSON.stringify(jokesArray));
+  localStorage.setItem("favoriteJokes", JSON.stringify(favoritesJokesArray));
+  $elements.favoritesJokes.innerHTML = "";
+  favoritesJokesArray.forEach((favoritesJoke) => {
+    renderJoke(favoritesJoke, $elements.favoritesJokes, true);
+  });
+  let $renderElement = document.querySelectorAll(".heart-btn");
+  $renderElement.forEach((btn) => {
+    const isFav = favoritesJokesArray.some((fav) => fav.id === btn.dataset.id);
+    btn.classList.toggle("active", isFav);
+  });
 }
 
 const selectionOfJokes = async () => {
   switch (jokeType) {
     case "jokeByRandom":
       const joke = await jokes.getRandomJoke();
-      renderJoke(joke.value, isFavorite(joke.id), joke.id);
+      jokesArray.push(joke);
+      renderJoke(joke, $elements.jokes);
       break;
     case "jokeByCategories":
-      const jokeByCategory = await jokes.getJokeByCategory(categoryName);
-      renderJoke(
-        jokeByCategory.value,
-        isFavorite(jokeByCategory.id),
-        jokeByCategory.id
-      );
+      if (categoryName) {
+        const jokeByCategory = await jokes.getJokeByCategory(categoryName);
+        jokesArray.push(jokeByCategory);
+        renderJoke(jokeByCategory, $elements.jokes);
+      }
       break;
     case "jokeBySearch":
-      const jokesBySearch = await jokes.getJokesBySearch(searchValue);
-      jokesBySearch.result.forEach((joke) =>
-        renderJoke(joke.value, isFavorite(joke.id), joke.id)
-      );
+      if (searchValue) {
+        const jokesBySearch = await jokes.getJokesBySearch(searchValue);
+        jokesBySearch.result.forEach((joke) => {
+          renderJoke(joke, $elements.jokes);
+          jokesArray.push(joke);
+        });
+      }
       break;
   }
 };
 
-function isFavorite(id) {
-  return jokesArray.some((joke) => joke.id === id);
-}
-
-// Rendering a single joke in the DOM
-function renderJoke(text, favorite = false, id) {
-  $elements.jokes.insertAdjacentHTML(
-    "beforeend",
-    `<div class="jokes--joke-wrapper">
-       <div>${text}</div>
-       <div class="mark-as-favorite">
-         <button class="heart-btn ${
-           favorite ? "active" : ""
-         }" aria-label="Like" data-id="${id}" data-text="${text}">
-           ${heartSVG}
-         </button>
-       </div>
-     </div>`
-  );
+// Render a single joke into a specified container in the DOM
+function renderJoke(joke, container, favorite = false) {
+  container.insertAdjacentHTML("beforeend", renderHTML(joke, favorite));
 }
 
 const displayQuerySelection = (param) => {
