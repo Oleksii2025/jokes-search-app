@@ -42,8 +42,12 @@ document.addEventListener("click", (e) => {
   }
   if (
     e.target.type === "button" &&
-    e.target.className === "categories--category-btn"
+    ["categories--category-btn"].some((cls) => e.target.classList.contains(cls))
   ) {
+    const siblings = Array.from(e.target.parentElement.children).filter(
+      (el) => el !== e.target
+    );
+    siblings.forEach((sib) => sib.classList.remove("active"));
     categoryName = e.target.value;
     e.target.classList.add("active");
   }
